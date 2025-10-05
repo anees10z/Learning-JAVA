@@ -1,6 +1,6 @@
 package BitManipulation;
 
-public class getIthBit {
+public class GetIthBit {
     public static void main(String[] args) {
         int n = 15; 
         int i = 2;

@@ -1,6 +1,6 @@
 package BitManipulation;
 
-public class setIthbit {
+public class SetIthbit {
     public static void main(String[] args) {
         int n = 10; 
         int i = 2;

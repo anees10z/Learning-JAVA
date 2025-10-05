@@ -1,7 +1,7 @@
 package BitManipulation;
 
 
-public class updateIthBit {
+public class UpdateIthBit {
     public static int updateBit(int n, int ith, boolean update) {
         int bitMask;
         if (update == true) {
