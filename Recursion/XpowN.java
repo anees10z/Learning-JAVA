@@ -2,6 +2,11 @@ package Recursion;
 
 public class XpowN { // Stack height -> O(n)
     public static int pow(int x, int n) {
+        if (x == 0 && n == 0) {
+            System.out.println("0^0 is undefined (returning 1 by convention)");
+            return 1; // Conventionally in programming
+        }
+
         if (n == 0) // 1st base case
             return 1;
         if (x == 0) // 2nd best case
