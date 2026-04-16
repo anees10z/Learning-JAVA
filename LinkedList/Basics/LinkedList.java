@@ -86,8 +86,8 @@ public class LinkedList {
             size--;
             return;
         }
-        head = head.next;
         System.out.println("Deleted: " + head.data);
+        head = head.next;
         size--;
     }
 
@@ -99,8 +99,20 @@ public class LinkedList {
         }
 
         if (size == 1) {
-            head = null;
+            System.out.println("Deleted: " + head.data);
+            head = tail = null;
+            size--;
+            return;
         }
+        Node temp;
+        Node prev = null;
+        temp = head;
+        while (temp.next != null) {
+            prev = temp;
+            temp = temp.next;
+        }
+        System.out.println("Deleted: " + tail.data);
+        tail = prev;
         size--;
     }
 
@@ -113,6 +125,20 @@ public class LinkedList {
             temp = temp.next;
         }
         System.out.println("null");
+    }
+
+    // search for element in a LL iteratively
+    public int searchforElement(int target) {
+        int index = 0;
+        Node temp = head;
+        while (temp != null) {
+            if (temp.data == target) {
+                return index;
+            }
+            temp = temp.next;
+            index++;
+        }
+        return -1;
     }
 
     // Main Function
@@ -129,9 +155,11 @@ public class LinkedList {
         System.out.println("2. Add element at last");
         System.out.println("3. Add element in middle");
         System.out.println("4. Delete first element");
-        System.out.println("5. Display list");
-        System.out.println("6. Display size of list");
-        System.out.println("7. Exit");
+        System.out.println("5. Delete last element");
+        System.out.println("6. Display list");
+        System.out.println("7. Display size of list");
+        System.out.println("8. Search for an element");
+        System.out.println("9. Exit");
 
         do {
             System.out.print("Enter your choice: ");
@@ -162,16 +190,30 @@ public class LinkedList {
                 case 4:
                     list.removeFirst();
                     break;
-
                 case 5:
-                    list.displayLL();
+                    list.removeLast();
                     break;
 
                 case 6:
-                    System.out.println(size);
+                    list.displayLL();
                     break;
 
                 case 7:
+                    System.out.println(size);
+                    break;
+
+                case 8:
+                    System.out.print("Enter target: ");
+                    int target = sc.nextInt();
+                    int idx = list.searchforElement(target);
+                    if (idx == -1) {
+                        System.out.println("Element not Exists");
+                    } else {
+                        System.out.println("Element present at: " + idx);
+                    }
+                    break;
+
+                case 9:
                     System.out.println("Exiting program...");
                     break;
 
@@ -179,7 +221,7 @@ public class LinkedList {
                     System.out.println("Invalid choice, try again!");
             }
 
-        } while (choice != 7);
+        } while (choice != 8);
 
         sc.close();
     }
