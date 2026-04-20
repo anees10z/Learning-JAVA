@@ -141,6 +141,25 @@ public class LinkedList {
         return -1;
     }
 
+    // search for element in a LL Recursively
+    public int helper(Node temp, int target) {
+        if (temp == null) {
+            return -1;
+        }
+        if (temp.data == target) {
+            return 0;
+        }
+        int idx = helper(temp.next, target);
+        if (idx == -1) {
+            return -1;
+        }
+        return idx + 1;
+    }
+
+    public int recursiveSearch(int target) {
+        return helper(head, target);
+    }
+
     // Main Function
     public static void main(String[] args) {
 
@@ -158,8 +177,9 @@ public class LinkedList {
         System.out.println("5. Delete last element");
         System.out.println("6. Display list");
         System.out.println("7. Display size of list");
-        System.out.println("8. Search for an element");
-        System.out.println("9. Exit");
+        System.out.println("8. Search for an element Linearly");
+        System.out.println("9. Search for an element Recursively");
+        System.out.println("10. Exit");
 
         do {
             System.out.print("Enter your choice: ");
@@ -214,6 +234,17 @@ public class LinkedList {
                     break;
 
                 case 9:
+                    System.out.print("Enter target: ");
+                    int recTarget = sc.nextInt();
+                    int idx2 = list.recursiveSearch(recTarget);
+                    if (idx2 == -1) {
+                        System.out.println("Element not Exists");
+                    } else {
+                        System.out.println("Element present at: " + idx2);
+                    }
+                    break;
+
+                case 10:
                     System.out.println("Exiting program...");
                     break;
 
@@ -221,7 +252,7 @@ public class LinkedList {
                     System.out.println("Invalid choice, try again!");
             }
 
-        } while (choice != 8);
+        } while (choice != 10);
 
         sc.close();
     }
