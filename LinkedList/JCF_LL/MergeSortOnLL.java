@@ -12,13 +12,12 @@ public class MergeSortOnLL {
     }
 
     private Node head;
-    private int size;
+
 
     // Add node at first
     public void addInFirst(int data) {
         Node newNode = new Node(data);
-        size++;
-
+        
         if (head == null) {
             head = newNode;
             return;
@@ -31,7 +30,7 @@ public class MergeSortOnLL {
     // Add node at last
     public void addInLast(int data) {
         Node newNode = new Node(data);
-        size++;
+        
 
         if (head == null) {
             head = newNode;
