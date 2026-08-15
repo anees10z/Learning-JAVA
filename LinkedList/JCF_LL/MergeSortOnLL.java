@@ -116,18 +116,59 @@ public class MergeSortOnLL {
         head = mergeSort(head);
     }
 
+    // Zig Zag Linked List
+    public void zigZagLL(Node head) {
+        // find mid
+        Node slow = head;
+        Node fast = head.next;
+        while (fast != null && fast.next != null) {
+            slow = slow.next;
+            fast = fast.next.next;
+        }
+
+        // 2nd half reverse
+        Node curr = slow.next;
+        slow.next = null;
+        Node prev = null;
+        Node next;
+        while (curr != null) {
+            next = curr.next;
+            curr.next = prev;
+            prev = curr;
+            curr = next;
+        }
+
+        // alternate merging
+        Node leftH = head;
+        Node rightH = prev;
+
+        Node nextL;
+        Node nextR;
+
+        while (leftH != null && rightH != null) {
+            nextL = leftH.next;
+            leftH.next = rightH;
+            nextR = rightH.next;
+            rightH.next = nextL;
+
+            leftH = nextL;
+            rightH = nextR;
+        }
+    }
+
     public static void main(String[] args) {
         MergeSortOnLL list = new MergeSortOnLL();
 
-        list.addInFirst(4);
-        list.addInLast(3);
+        list.addInFirst(1);
         list.addInLast(2);
-        list.addInLast(1);
+        list.addInLast(3);
+        list.addInLast(4);
+        list.addInLast(5);
 
         list.displayLL();
-
-        list.sort();
-
+        
+        // list.sort();
+        list.zigZagLL(list.head);
         list.displayLL();
     }
 }
