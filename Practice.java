@@ -1,7 +1,13 @@
+// import java.util.*;
+
 public class Practice {
     public static void main(String[] args) {
-        System.out.println("hello");
-        int a = 5, b = 1;
-        System.out.println(a & b);
+        // String[] str = { "3", "1", "4", "10", "5" };
+        // int i = (int) str[3];
+        // System.out.println(i);
+        // Arrays.sort(str);
+        // for (String i : str) {
+        // System.out.println(i);
+        // }
     }
 }
