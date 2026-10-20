@@ -1,13 +1,21 @@
 // import java.util.*;
 
 public class Practice {
+    public static int partition(int[] arr, int i, int j) {
+        
+        return -1;
+    }
+
+    public static void quickSort(int[] arr) {
+
+    }
+
     public static void main(String[] args) {
-        // String[] str = { "3", "1", "4", "10", "5" };
-        // int i = (int) str[3];
-        // System.out.println(i);
-        // Arrays.sort(str);
-        // for (String i : str) {
-        // System.out.println(i);
-        // }
+        int[] arr = { 3, 5, 2, 4, 19, 31, 1, 23, 8, 9 };
+        quickSort(arr);
+        for (int num : arr) {
+            System.out.print(num + " ");
+        }
+        System.out.println();
     }
 }
