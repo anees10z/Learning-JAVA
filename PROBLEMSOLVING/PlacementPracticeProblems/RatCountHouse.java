@@ -27,7 +27,27 @@ package PROBLEMSOLVING.PlacementPracticeProblems;
 // The amount of food in 1st houses = 2+8+3+5 = 18. Since, amount of food in 1st 4 houses is sufficient for all the rats. Thus, output is 4.
 
 public class RatCountHouse {
+    public static int count(int[] arr, int r, int unit) {
+        if (arr == null)
+            return -1;
+        int len = arr.length;
+        int requiredFood = r * unit;
+        int sum = 0;
+
+        for (int i = 0; i < len; i++) {
+            sum += arr[i];
+            if (sum >= requiredFood) {
+                return i + 1;
+            }
+        }
+
+        return 0;
+    }
+
     public static void main(String[] args) {
-        
+        int[] arr = { 2, 8, 3, 5, 7, 4, 1, 2 };
+        int r = 7;
+        int unit = 2;
+        System.out.println("Ans: " + count(arr, r, unit));
     }
 }
