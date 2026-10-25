@@ -18,7 +18,7 @@ package PROBLEMSOLVING.PlacementPracticeProblems;
 
 // Input
 
-// arr:3 2 1 7 5 4
+// arr: 3 2 1 7 5 4
 
 // Output
 
