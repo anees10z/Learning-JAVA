@@ -16,7 +16,23 @@ package PROBLEMSOLVING.PlacementPracticeProblems;
 // Elements of ‘arr’ having absolute difference of less than or equal to ‘diff’ i.e. 2 with ‘num’ i.e. 13 are 12, 13 and 14.
 
 public class CountAbsDifference {
+    public static int findCount(int[] arr, int length, int num, int diff) {
+        int count = 0;
+        for (int i = 0; i < length; i++) {
+            int abs = Math.abs(arr[i] - num);
+            if (abs <= diff)
+                count++;
+        }
+        return count == 0 ? -1 : count;
+    }
+
     public static void main(String[] args) {
-        
+        int[] arr = { 12, 3, 14, 56, 77, 13 };
+        int length = arr.length;
+        int num = 13;
+        int diff = 2;
+
+        int count = findCount(arr, length, num, diff);
+        System.out.println("Count: " + count);
     }
 }
