@@ -34,10 +34,10 @@ public class TimeNeededToBuyTickets {
         for (int i = k - 1; i >= 0; i--)
             count += Math.min(tickets[i], tickets[k]);
         count += tickets[k];
-        tickets[k]--; // because if tickets[k]==0 then right part have 1 less chance
         // right part
+        // if tickets[k]==0 then right part have 1 less chance
         for (int i = k + 1; i < len; i++)
-            count += Math.min(tickets[i], tickets[k]);
+            count += Math.min(tickets[i], tickets[k]-1);
         return count;
     }
 
