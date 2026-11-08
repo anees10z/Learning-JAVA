@@ -1,0 +1,35 @@
+<!-- Frontend (HTML + CSS + JavaScript)
+Task:
+You are designing a simple webpage for a company dashboard.
+You need to:
+1. Create 4 buttons in HTML.
+2. Style them with 25px border-radius using CSS.
+3. Write a JavaScript function to show a popup message when a button is clicked. -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .btn {
+        border-radius: 25px;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <button class="btn" onclick="showMessage()">Button-1</button>
+    <button class="btn" onclick="showMessage()">Button-2</button>
+    <button class="btn" onclick="showMessage()">Button-3</button>
+    <button class="btn" onclick="showMessage()">Button-4</button>
+
+    <script>
+      function showMessage() {
+        alert("Button Clicked");
+      }
+    </script>
+  </body>
+</html>

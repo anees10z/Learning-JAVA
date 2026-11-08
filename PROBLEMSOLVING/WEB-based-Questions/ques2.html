@@ -1,0 +1,92 @@
+<!-- Frontend (HTML + CSS + JavaScript)
+Problem Statement:
+You are required to create a webpage using HTML, CSS, and JavaScript where:
+⚫ A button is displayed with the text "Show Text".
+⚫ When the button is clicked, a hidden message should appear below the button.
+⚫ The button text should then change to "Hide Text".
+⚫ When clicked again, the message should disappear and the button text should change back to "Show Text".
+HTML Part
+• Create a button with id="toggleBtn".
+• Create a paragraph with id="text" that contains any message.
+• Initially, the paragraph should be hidden.
+CSS Part
+• Style the button with:
+⚫ border-radius: 25px
+⚫ background-color: #007bff
+⚫ white text color
+JavaScript Part
+• Write a function toggleText() which is executed when the button is
+clicked.
+⚫If the text is hidden, it should:
+⚫ Display the message
+⚫ Change the button text to "Hide Text"
+• If the text is visible, it should:
+• Hide the message
+⚫ • Change the button text to "Show Text" -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #toggleBtn {
+        border-radius: 25px;
+        background-color: #007bff;
+        color: white;
+      }
+      .hide {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <button id="toggleBtn" onclick="toggleText()">Show Text</button>
+    <p id="text" class="hide">Hidden Message</p>
+
+    <script>
+      function toggleText() {
+        const msg = document.getElementById("text");
+        const btn = document.getElementById("toggleBtn");
+        msg.classList.toggle("hide");
+        btn.textContent = msg.classList.contains("hide")
+          ? "Show Text"
+          : "Hide Text";
+      }
+    </script>
+  </body>
+</html>
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .hide {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <button id="btn" class="show">SHOW TEXT</button>
+    <p id="msg" class="hide">Hidden Message</p>
+
+    <script>
+      const btn = document.getElementById("btn");
+      const msg = document.getElementById("msg");
+      btn.addEventListener("click", () => {
+        if (btn.innerHTML == "SHOW TEXT") {
+          btn.innerHTML = "HIDE TEXT";
+          msg.classList.remove("hide");
+        } else {
+          btn.innerHTML = "SHOW TEXT";
+          msg.classList.add("hide");
+        }
+      });
+    </script>
+  </body>
+</html> -->
