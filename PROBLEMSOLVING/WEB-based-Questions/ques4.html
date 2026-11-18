@@ -1,0 +1,58 @@
+<!-- Add Item to a List
+Topics: input.value, createElement, appendChild, validation
+Question
+A page has an input with ID itemInput, an Add button with ID addBtn, and an unordered list with ID itemList. When Add is clicked, read the input and add it as a new <li>. If the input is empty or contains only spaces, do nothing. Clear the input after a successful addition. -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Add Item to a List</title>
+    <style>
+      div {
+        border: 2px solid blue;
+        border-radius: 15px;
+        padding: 10px;
+        background-color: bisque;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Add Item to a List</h1>
+    <hr />
+    <input id="itemInput" type="text" placeholder="Enter task here" />'
+    <button id="addBtn">ADD</button>
+    <ul id="itemList"></ul>
+    <hr />
+    <div>
+      <h3>Question: Add Item to a List Topics</h3>
+      input.value, createElement, appendChild, validation
+      <br />Question A page has an input with ID itemInput, an Add button with
+      ID addBtn, and an unordered list with ID itemList. When Add is clicked,
+      read the input and add it as a new
+      <li>
+        . If the input is empty or contains only spaces, do nothing. Clear the
+        input after a successful addition.
+      </li>
+    </div>
+
+    <script>
+      const itemInput = document.getElementById("itemInput");
+      const addBtn = document.getElementById("addBtn");
+      const itemList = document.getElementById("itemList");
+
+      addBtn.addEventListener("click", () => {
+        const inputValue = itemInput.value.trim();
+        if (inputValue === "") {
+          return;
+        }
+        const listItem = document.createElement("li");
+        listItem.textContent = inputValue;
+        itemList.appendChild(listItem);
+        itemInput.value = "";
+      });
+    </script>
+  </body>
+</html>

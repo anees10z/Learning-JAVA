@@ -1,0 +1,51 @@
+<!-- Show/Hide Password
+Topics: DOM properties, class/state handling, click event
+Question
+A password input has ID password and a button has ID toggleBtn. When the button is clicked, toggle the password between visible text and password mode. Also change the button text between Show and Hide. -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Show/Hide Password</title>
+    <style>
+      div {
+        border: 2px solid blue;
+        border-radius: 15px;
+        padding: 10px;
+        background-color: bisque;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Show/Hide Password</h1>
+    <hr />
+    <input id="password" type="password" placeholder="Enter password" />
+    <button id="toggleBtn">Show</button>
+    <hr />
+    <div>
+      <h3>Show/Hide Password</h3>
+      Show/Hide Password Topics: DOM properties, class/state handling, click
+      event
+      <br />
+      Question A password input has ID password and a button has ID toggleBtn.
+      When the button is clicked, toggle the password between visible text and
+      password mode. Also change the button text between Show and Hide.
+    </div>
+    <script>
+      const toggleBtn = document.getElementById("toggleBtn");
+      const password = document.getElementById("password");
+      toggleBtn.addEventListener("click", () => {
+        if (toggleBtn.textContent === "Show") {
+          password.setAttribute("type", "text");
+          toggleBtn.textContent = "Hide";
+        } else {
+          password.setAttribute("type", "password");
+          toggleBtn.textContent = "Show";
+        }
+      });
+    </script>
+  </body>
+</html>
