@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dynamic To-do List</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f2f2f2;
+      }
+
+      .container {
+        width: 400px;
+        margin: 50px auto;
+        padding: 20px;
+        background: white;
+        border-radius: 10px;
+        text-align: center;
+      }
+
+      input {
+        padding: 10px;
+        width: 60%;
+      }
+
+      button {
+        padding: 10px;
+        cursor: pointer;
+      }
+
+      ul {
+        list-style: none;
+        padding: 0;
+      }
+
+      li {
+        margin: 12px 0;
+        padding: 10px;
+        background: #eeeeee;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .completed {
+        text-decoration: line-through;
+        color: gray;
+      }
+
+      #error {
+        color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>My To-Do List</h1>
+
+      <input type="text" id="taskInput" placeholder="Enter your task" />
+
+      <button id="addBtn">Add Task</button>
+
+      <p id="error"></p>
+
+      <ul id="taskList">
+        <!-- Tasks should appear here dynamically -->
+      </ul>
+    </div>
+
+    <script>
+      const taskInput = document.getElementById("taskInput");
+      const addBtn = document.getElementById("addBtn");
+      const taskList = document.getElementById("taskList");
+      const error = document.getElementById("error");
+
+      // TODO 1: Add click event to Add Task button
+      addBtn.addEventListener("click", addTask);
+      taskInput.addEventListener("keydown", (event) => {
+        if (event.key === "Enter") {
+          addTask();
+        }
+      });
+
+      function addTask() {
+        // TODO 2: Read the input value
+        let value = taskInput.value.trim();
+        // TODO 3: Validate empty input
+        if (value === "") {
+          error.textContent = "Please enter a task to add";
+          return;
+        }
+        // TODO 4: Create a new li element
+        let listItem = document.createElement("li");
+        let liText = document.createElement("span");
+        liText.textContent = value;
+
+        // TODO 5: Add task text and Complete/Delete buttons
+        let completeBtn = document.createElement("button");
+        completeBtn.textContent = "Complete";
+        completeBtn.style.backgroundColor = "green";
+        completeBtn.style.color = "white";
+
+        let deleteBtn = document.createElement("button");
+        deleteBtn.textContent = "Delete";
+        deleteBtn.style.backgroundColor = "red";
+        deleteBtn.style.color = "white";
+        // TODO 7: Implement Complete button functionality
+        completeBtn.addEventListener("click", () => {
+          liText.classList.toggle("completed");
+        });
+        // TODO 8: Implement Delete button functionality
+        deleteBtn.addEventListener("click", () => {
+          listItem.remove();
+        });
+
+        listItem.appendChild(liText);
+        listItem.appendChild(completeBtn);
+        listItem.appendChild(deleteBtn);
+        // TODO 6: Append the new task to taskList
+        taskList.appendChild(listItem);
+        // TODO 9: Clear input after adding task
+        taskInput.value = "";
+        error.textContent = "";
+      }
+    </script>
+    <hr />
+    <div>
+      Problem statement <br />
+      Create a To-Do List application where users can add tasks, mark tasks as
+      completed, and delete tasks dynamically.
+      <br />
+      Requirements <br />
+      1. User should enter a task in the input field. <br />
+      2. On clicking Add Task, the task should appear in the list. <br />
+      3. If the input is empty, display an appropriate error message. <br />
+      4. Each task should have a Complete button. <br />
+      5. Clicking Complete should mark the task as completed (use strikethrough
+      styling). <br />
+      6. Each task should have a Delete button. <br />
+      7. Clicking Delete should remove that particular task. <br />
+      8. After adding a task, clear the input field.
+    </div>
+  </body>
+</html>
