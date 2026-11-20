@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Product Filter</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+      }
+
+      .container {
+        width: 450px;
+        margin: 40px auto;
+        padding: 25px;
+        background: white;
+        border-radius: 10px;
+      }
+
+      h1 {
+        text-align: center;
+      }
+
+      input {
+        width: 95%;
+        padding: 12px;
+        margin-bottom: 20px;
+        font-size: 16px;
+      }
+
+      ul {
+        padding: 0;
+        list-style: none;
+      }
+
+      .product {
+        padding: 12px;
+        margin: 8px 0;
+        background-color: #eeeeee;
+        border-radius: 5px;
+      }
+
+      #noResult {
+        color: red;
+        text-align: center;
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Product Store</h1>
+
+      <input type="text" id="searchInput" placeholder="Search products..." />
+
+      <ul id="productList">
+        <li class="product">Apple iPhone 15</li>
+        <li class="product">Samsung Galaxy S24</li>
+        <li class="product">OnePlus 12</li>
+        <li class="product">Google Pixel 8</li>
+        <li class="product">Apple MacBook Air</li>
+        <li class="product">Dell Laptop</li>
+        <li class="product">HP Pavilion Laptop</li>
+        <li class="product">Lenovo ThinkPad</li>
+        <li class="product">Sony Headphones</li>
+        <li class="product">Boat Wireless Earbuds</li>
+        <li class="product">JBL Bluetooth Speaker</li>
+        <li class="product">Apple iPad</li>
+        <li class="product">Samsung Tablet</li>
+        <li class="product">Logitech Mouse</li>
+        <li class="product">Mechanical Keyboard</li>
+      </ul>
+
+      <p id="noResult">No products found!</p>
+    </div>
+
+    <script>
+      const searchInput = document.getElementById("searchInput");
+      const productList = document.getElementById("productList");
+      const products = document.querySelectorAll(".product");
+      const noResult = document.getElementById("noResult");
+
+      // TODO 1: Add an input event listener to searchInput
+      searchInput.addEventListener("input", () => {
+        // TODO 2: Get the value entered by the user
+        // TODO 3: Convert the search value to lowercase
+        let inpValue = searchInput.value.trim().toLowerCase();
+        let count = 0;
+        // TODO 4: Loop through all the products
+        products.forEach((prd) => {
+          // TODO 5: Get the text of each product
+          let productName = prd.textContent.toLowerCase();
+          // TODO 6: Compare product name with search input
+          if (productName.includes(inpValue)) {
+            // TODO 7: Show matching products
+            prd.style.display = "";
+            count++;
+          } else {
+            // TODO 8: Hide non-matching products
+            prd.style.display = "none";
+          }
+        });
+        // TODO 9: If no products match, show "No products found!"
+        if (count === 0) {
+          noResult.style.display = "block";
+        }else{
+            noResult.style.display = "none";
+        }
+        // TODO 10: If input is empty, display all products again
+        
+      });
+    </script>
+
+    <div
+      class="question"
+      style="border: 2px solid black; border-radius: 10px; padding: 15px"
+    >
+      Problem: Live Product Search Filter <br />
+      <hr />
+      Problem statement<br />
+      You are given a list of products displayed on a webpage and a search input
+      field.
+      <br />
+      Your task is to implement a live search functionality using JavaScript.
+      <br />
+      As the user types something in the search box, only those products whose
+      names contain the entered text should remain visible. All other products
+      should be hidden.
+      <br />
+      The filtering should happen dynamically without clicking any search
+      button.<br />
+      Requirements<br />
+      1. Initially, all products should be visible.<br />
+      2. As soon as the user types a character, filter the products.<br />
+      3. Display only products whose names contain the entered keyword.<br />
+      4. Filtering should be case-insensitive.<br />
+      - lap should match Laptop.<br />
+      - PHO should match Smartphone.<br />
+      5. If the user deletes some characters, products should be filtered
+      again.<br />
+      6. If the user clears the input completely, all products should become
+      visible again.<br />
+      7. If no product matches, display No products found!.<br />
+      8. Do not remove products from the DOM. Only hide and show them.
+    </div>
+  </body>
+</html>
